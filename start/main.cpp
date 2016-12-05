@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Your Name <you@yourhost.com>
+ * Copyright 2016 Erik Luttmer <erik210@live.nl>
  *
  * @brief Description of My Awesome Game.
  *
@@ -16,6 +16,7 @@
 #include <rt2d/core.h>
 
 #include "myscene.h"
+#include "spaceship.h"
 
 /// @brief main entry point
 int main( void )

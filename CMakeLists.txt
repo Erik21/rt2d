@@ -188,6 +188,10 @@ add_executable(start
 	start/myentity.h
 	start/myscene.cpp
 	start/myscene.h
+	start/spaceship.cpp
+	start/spaceship.h
+  start/boidentity.cpp
+  start/boidentity.h
 )
 target_link_libraries(start
 	${ALL_LIBS}

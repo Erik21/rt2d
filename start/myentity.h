@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Your Name <you@yourhost.com>
+* Copyright 2016 Erik Luttmer <erik210@live.nl>
  *
  * @file myentity.h
  *

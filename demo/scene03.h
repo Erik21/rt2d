@@ -25,14 +25,7 @@ public:
 private:
 	Timer t;
 
-	BasicEntity* rt2d_line;
-	BasicEntity* default_line;
 	BasicEntity* spaceship;
-
-	BasicEntity* shape_container;
-	std::vector<BasicEntity*> shapes;
-
-	BasicEntity* dynamic_line;
 
 	void updateSpaceShip(float deltaTime);
 };
