@@ -24,13 +24,18 @@ public:
 	virtual ~SpaceShip();
 
 	virtual void update(float deltaTime);
+	void updateSpaceShip(float deltaTime);
+
+	Vector2 velocity;
+	Polar polar;
 
 private:
 	Timer t;
+	float rotspeed;
 
 //	SpaceShip* spaceship; //?
 
-	void updateSpaceShip(float deltaTime);
+
 };
 
 #endif /* SPACESHIP_H */

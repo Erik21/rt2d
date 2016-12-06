@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Your Name <you@yourhost.com>
+ * Copyright 2016 Erik Luttmer <erik210@live.nl>
  *
  * @file myscene.h
  *
@@ -10,7 +10,8 @@
 #define MYSCENE_H
 
 #include <rt2d/scene.h>
-
+#include <vector>
+#include "boidentity.h"
 #include "myentity.h"
 #include "spaceship.h"
 
@@ -27,6 +28,8 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
+	void updateSpaceShip(float deltaTime);
+	Vector2 velocity;
 
 private:
 	/// @brief the rotating square in the middle of the screen
@@ -35,6 +38,9 @@ private:
 	SpaceShip* spaceship;
 	/// @brief a Timer to rotate the color every n seconds
 	Timer t;
+
+	Polar polar;
+	float rotspeed;
 };
 
 #endif /* SCENE00_H */

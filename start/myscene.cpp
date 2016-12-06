@@ -1,7 +1,7 @@
 /**
  * This class describes MyScene behavior.
  *
- * Copyright 2015 Your Name <you@yourhost.com>
+* Copyright 2016 Erik Luttmer <erik210@live.nl>
  */
 
 #include <fstream>
@@ -35,10 +35,6 @@ MyScene::MyScene() : Scene()
 	myentity->position = Point2(SWIDTH/3, SHEIGHT/3);
 
 
-
-
-
-
 	// create the scene 'tree'
 	// add myentity and spaceship to this Scene as a child.
 	this->addChild(myentity);
@@ -55,12 +51,14 @@ MyScene::~MyScene()
 	// delete myentity and spaceship from the heap (there was a 'new' in the constructor)
 	delete myentity;
 	delete spaceship;
-}
 
+//	spaceship->updateSpaceShip(deltaTime);
+}
 
 
 void MyScene::update(float deltaTime)
 {
+	//spaceship->updateSpaceShip(deltaTime);
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
@@ -81,15 +79,19 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	// Move SpaceShip
 	// ###############################################################
-	if (input()->getKey( GLFW_KEY_UP )) {
+	if (input()->getKeyDown( GLFW_KEY_UP )) {
 		spaceship->line()->color = RED;
-		spaceship->line()->velocity += polar.cartesian() * deltaTime; // thrust
+		spaceship->velocity += polar.cartesian() * deltaTime; // thrust
+		//spaceship->velocity * deltaTime; // thrust
 	}
-	if (input()->getKey( GLFW_KEY_RIGHT )) {
-		spaceship->line()->polar.angle += rotspeed * deltaTime; // rotate right
+	if (input()->getKeyDown( GLFW_KEY_RIGHT )) {
+		spaceship->polar.angle += rotspeed * deltaTime; // rotate right
+		//spaceship->velocity += rotspeed * deltaTime; // rotate right
 	}
-	if (input()->getKey( GLFW_KEY_LEFT)) {
-		spaceship->line()->polar.angle -= rotspeed * deltaTime; // rotate left
+	if (input()->getKeyDown( GLFW_KEY_LEFT)) {
+		spaceship->polar.angle -= rotspeed * deltaTime; // rotate left
+		//spaceship->velocity -= rotspeed * deltaTime; // rotate left
+
 	}
 
 	// ###############################################################
