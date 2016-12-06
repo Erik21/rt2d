@@ -1,7 +1,7 @@
 /**
  * This file is part of a demo that shows how to use RT2D, a 2D OpenGL framework.
  *
- * - Copyright 2015 Rik Teerling <rik@onandoffables.com>
+ * - Copyright 2016 Erik Luttmer <erik210@live.nl>
  *     - Initial commit
  */
 
