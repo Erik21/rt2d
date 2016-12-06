@@ -29,11 +29,11 @@ public:
 	Vector2 velocity;
 	Polar polar;
 
+
 private:
 	Timer t;
-	float rotspeed;
-
-//	SpaceShip* spaceship; //?
+	//float rotspeed;
+//SpaceShip* spaceship; //?
 
 
 };

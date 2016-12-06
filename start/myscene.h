@@ -30,7 +30,9 @@ public:
 	virtual void update(float deltaTime);
 	void updateSpaceShip(float deltaTime);
 	Vector2 velocity;
-
+	Polar polar;
+	float rotspeed = 3.14f;
+	
 private:
 	/// @brief the rotating square in the middle of the screen
 	MyEntity* myentity;
@@ -38,9 +40,7 @@ private:
 	SpaceShip* spaceship;
 	/// @brief a Timer to rotate the color every n seconds
 	Timer t;
-
-	Polar polar;
-	float rotspeed;
+	//float rotspeed;
 };
 
 #endif /* SCENE00_H */

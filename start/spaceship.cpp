@@ -13,8 +13,9 @@ RGBAColor colors[10] = { WHITE, GRAY, RED, ORANGE, YELLOW, GREEN, CYAN, BLUE, PI
 
 SpaceShip::SpaceShip() : Entity()
 {
-		t.start();
-    velocity = Vector2(0.0f, 0.0f);
+  t.start();
+  velocity = Vector2((rand()%100)-50, (rand()%100)-50);
+  polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
 }
 
 SpaceShip::~SpaceShip()
@@ -24,16 +25,15 @@ SpaceShip::~SpaceShip()
 
 void SpaceShip::update(float deltaTime)
 {
- this->updateSpaceShip(deltaTime);
+ //this->updateSpaceShip(deltaTime);
 }
 
 void SpaceShip::updateSpaceShip(float deltaTime)
 {
 	this->line()->color = BLUE;
-  rotspeed = 3.14f;
 
-	static Vector2 velocity = Vector2((rand()%100)-50, (rand()%100)-50);
-	static Polar polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
+	//static Vector2 velocity = Vector2((rand()%100)-50, (rand()%100)-50);
+	//static Polar polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
 
 	this->rotation = polar.angle;
 	this->position += velocity * deltaTime;

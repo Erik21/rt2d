@@ -18,7 +18,6 @@ class BoidEntity: public Entity
 		virtual ~BoidEntity();
 
 		virtual void update(float deltaTime);
-
 		Vector2 velocity;
 
 	private:
