@@ -180,25 +180,23 @@ file(
 )
 
 ####################################################################
-# start                                                            #
+# Spacegame                                                            #
 ####################################################################
-add_executable(start
-	start/main.cpp
-	start/myentity.cpp
-	start/myentity.h
-	start/myscene.cpp
-	start/myscene.h
-	start/spaceship.cpp
-	start/spaceship.h
-  start/boidentity.cpp
-  start/boidentity.h
+add_executable(Spacegame
+	Spacegame/main.cpp
+	Spacegame/myscene.cpp
+	Spacegame/myscene.h
+	Spacegame/spaceship.cpp
+	Spacegame/spaceship.h
+  	Spacegame/boidentity.cpp
+  	Spacegame/boidentity.h
 )
-target_link_libraries(start
+target_link_libraries(Spacegame
 	${ALL_LIBS}
 )
 # Copy assets to the build directory
 file(
-	COPY start/assets
+	COPY Spacegame/assets
 	DESTINATION ${CMAKE_BINARY_DIR}
 )
 ####################################################################
@@ -209,14 +207,14 @@ if(WIN32)
 	#set_target_properties(demo PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/demo/")
 	#create_target_launcher(demo WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/demo/")
 
-	# Xcode and Visual working directories for start
-	#set_target_properties(start PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/start/")
-	#create_target_launcher(start WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/start/")
+	# Xcode and Visual working directories for Spacegame
+	#set_target_properties(Spacegame PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Spacegame/")
+	#create_target_launcher(Spacegame WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Spacegame/")
 
 	# create file tabs in visual studio
 	#SOURCE_GROUP(rt2d REGULAR_EXPRESSION ".*/rt2d/.*" )
 	#SOURCE_GROUP(demo REGULAR_EXPRESSION ".*/demo/.*" )
-	#SOURCE_GROUP(start REGULAR_EXPRESSION ".*/start/.*" )
+	#SOURCE_GROUP(Spacegame REGULAR_EXPRESSION ".*/Spacegame/.*" )
 	#SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shaders$" )
 endif(WIN32)
 

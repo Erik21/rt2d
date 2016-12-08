@@ -33,7 +33,8 @@ void BoidEntity::update(float deltaTime)
 	// ###############################################################
 	// Keep this Entity within borders of Screen
 	// ###############################################################
-	if (position.y < 0) {
+	if (position.y < 0)
+	{
 		position.y = 0;
 		velocity.y *= -1;
 	} else if (position.y > SHEIGHT) {

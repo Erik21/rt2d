@@ -10,9 +10,9 @@
 #define MYSCENE_H
 
 #include <rt2d/scene.h>
+#include <rt2d/vectorx.h>
 #include <vector>
 #include "boidentity.h"
-#include "myentity.h"
 #include "spaceship.h"
 
 /// @brief The MyScene class is the Scene implementation.
@@ -31,12 +31,11 @@ public:
 	void updateSpaceShip(float deltaTime);
 	Vector2 velocity;
 	Polar polar;
-	float rotspeed = 3.14f;
-	
+
+	float rotspeed;
+
 private:
-	/// @brief the rotating square in the middle of the screen
-	MyEntity* myentity;
-	/// @....
+	/// @...
 	SpaceShip* spaceship;
 	/// @brief a Timer to rotate the color every n seconds
 	Timer t;

@@ -6,6 +6,8 @@
 
 #include <fstream>
 #include <sstream>
+#include <rt2d/vectorx.h>
+#include <vector>
 #include "myscene.h"
 #include "spaceship.h"
 #include "boidentity.h"
@@ -14,7 +16,6 @@
 MyScene::MyScene() : Scene()
 {
 	t.start();
-
 	Line* tmp = new Line();
 	tmp->addPoint(-10.0f, -10.0f);
 	tmp->addPoint(20.0f, 0.0f);
@@ -49,7 +50,11 @@ MyScene::~MyScene()
 void MyScene::update(float deltaTime)
 {
 
+
 	spaceship->updateSpaceShip(deltaTime);
+	rotspeed = 3.14f;
+
+
 
 	// ###############################################################
 	// Escape key stops the Scene
@@ -63,14 +68,14 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	if (input()->getKey( GLFW_KEY_UP )) {
 		spaceship->line()->color = RED;
-		spaceship->velocity += polar.cartesian() * deltaTime; // thrust
+		velocity += polar.cartesian() * deltaTime; // thrust
 	}
 	if (input()->getKey( GLFW_KEY_RIGHT )) {
 		spaceship->line()->color = WHITE;
-		spaceship->polar.angle += rotspeed * deltaTime; // rotate right
+		polar.angle += rotspeed * deltaTime; // rotate right
 	}
 	if (input()->getKey( GLFW_KEY_LEFT)) {
 		spaceship->line()->color = WHITE;
-		spaceship->polar.angle -= rotspeed * deltaTime; // rotate left
+		polar.angle -= rotspeed * deltaTime; // rotate left
 	}
 }
