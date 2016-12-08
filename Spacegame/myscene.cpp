@@ -66,16 +66,18 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	// Move SpaceShip
 	// ###############################################################
+
 	if (input()->getKey( GLFW_KEY_UP )) {
 		spaceship->line()->color = RED;
-		velocity += polar.cartesian() * deltaTime; // thrust
+		spaceship->velocity += polar.cartesian() * deltaTime; // thrust
 	}
 	if (input()->getKey( GLFW_KEY_RIGHT )) {
 		spaceship->line()->color = WHITE;
-		polar.angle += rotspeed * deltaTime; // rotate right
+		spaceship->polar.angle += rotspeed * deltaTime; // rotate right
 	}
 	if (input()->getKey( GLFW_KEY_LEFT)) {
 		spaceship->line()->color = WHITE;
-		polar.angle -= rotspeed * deltaTime; // rotate left
+		spaceship->polar.angle -= rotspeed * deltaTime; // rotate left
 	}
+
 }
