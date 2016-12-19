@@ -69,7 +69,8 @@ void MyScene::update(float deltaTime)
 
 	if (input()->getKey( GLFW_KEY_UP )) {
 		spaceship->line()->color = RED;
-		spaceship->velocity += polar.cartesian() * deltaTime; // thrust
+		spaceship->velocity += spaceship->polar.cartesian() * deltaTime; // thrust
+		std::cout << spaceship->velocity.x << std::endl;
 	}
 	if (input()->getKey( GLFW_KEY_RIGHT )) {
 		spaceship->line()->color = WHITE;

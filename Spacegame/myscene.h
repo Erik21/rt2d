@@ -29,8 +29,9 @@ public:
 	/// @return void
 	virtual void update(float deltaTime);
 	void updateSpaceShip(float deltaTime);
-	Vector2 velocity;
-	Polar polar;
+
+	//Polar polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
+	//Vector2 velocity = Vector2(0.001f, 0.001f);
 
 	float rotspeed;
 
