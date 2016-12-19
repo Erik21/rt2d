@@ -12,7 +12,6 @@
 #include <rt2d/scene.h>
 #include <rt2d/vectorx.h>
 #include <vector>
-#include "boidentity.h"
 #include "spaceship.h"
 
 /// @brief The MyScene class is the Scene implementation.
@@ -28,7 +27,6 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
-	void updateSpaceShip(float deltaTime);
 
 	//Polar polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
 	//Vector2 velocity = Vector2(0.001f, 0.001f);

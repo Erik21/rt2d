@@ -10,7 +10,7 @@
 #include <vector>
 #include "myscene.h"
 #include "spaceship.h"
-#include "boidentity.h"
+
 
 
 MyScene::MyScene() : Scene()
@@ -49,12 +49,8 @@ MyScene::~MyScene()
 
 void MyScene::update(float deltaTime)
 {
-
-
 	spaceship->updateSpaceShip(deltaTime);
 	rotspeed = 3.14f;
-
-
 
 	// ###############################################################
 	// Escape key stops the Scene
@@ -66,7 +62,7 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	// Move SpaceShip
 	// ###############################################################
-
+/*
 	if (input()->getKey( GLFW_KEY_UP )) {
 		spaceship->line()->color = RED;
 		spaceship->velocity += spaceship->polar.cartesian() * deltaTime; // thrust
@@ -80,5 +76,18 @@ void MyScene::update(float deltaTime)
 		spaceship->line()->color = WHITE;
 		spaceship->polar.angle -= rotspeed * deltaTime; // rotate left
 	}
-
+	*/
+	// Move myentity
+	if ((input()->getKey(GLFW_KEY_W)) || (input()->getKey(GLFW_KEY_UP)))  {
+		spaceship->velocity.y -= 2 * deltaTime;
+	}
+	if ((input()->getKey(GLFW_KEY_S)) || (input()->getKey(GLFW_KEY_DOWN))) {
+		spaceship->velocity.y += 2 * deltaTime;
+	}
+	if ((input()->getKey(GLFW_KEY_A)) || (input()->getKey(GLFW_KEY_LEFT))) {
+		spaceship->velocity.x -= 2 * deltaTime;
+	}
+	if ((input()->getKey(GLFW_KEY_D)) || (input()->getKey(GLFW_KEY_RIGHT)))  {
+		spaceship->velocity.x += 2 * deltaTime;
+	}
 }

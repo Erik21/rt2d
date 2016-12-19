@@ -6,16 +6,13 @@
 #include <fstream>
 #include <sstream>
 #include "spaceship.h"
-#include "boidentity.h"
+
 
 SpaceShip::SpaceShip() : Entity()
 {
-
-  polar = Polar(0.0f, 1.0f);
-  velocity = Vector2(0.001f, 0.001f);
   t.start();
-//  polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
-//	velocity = Vector2(0.001f, 0.001f);
+  polar = Polar(0.0f, 1.0f);
+  velocity = Vector2(0.1f, 0.1f);
 }
 
 SpaceShip::~SpaceShip()
@@ -25,7 +22,7 @@ SpaceShip::~SpaceShip()
 
 void SpaceShip::update(float deltaTime)
 {
- //this->updateSpaceShip(deltaTime);
+
 }
 
 void SpaceShip::updateSpaceShip(float deltaTime)

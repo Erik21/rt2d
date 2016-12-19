@@ -19,7 +19,6 @@ class Scene03: public SuperScene
 public:
 	Scene03();
 	virtual ~Scene03();
-
 	virtual void update(float deltaTime);
 
 private:

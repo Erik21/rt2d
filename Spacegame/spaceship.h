@@ -14,7 +14,6 @@
 #include <rt2d/scene.h>
 #include <rt2d/timer.h>
 #include <rt2d/entity.h>
-#include "boidentity.h"
 
 /// @brief The SpaceShip class is the Entity implementation.
 class SpaceShip : public Entity
@@ -29,7 +28,6 @@ public:
 	Vector2 velocity;
 	Polar polar;
 	//velocity = Vector2((rand()%100)-50, (rand()%100)-50);
-
 	//polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
 
 
