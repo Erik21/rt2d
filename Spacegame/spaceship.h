@@ -19,20 +19,29 @@
 class SpaceShip : public Entity
 {
 public:
+	/// @brief Constructor
 	SpaceShip();
+	/// @brief Destructor
 	virtual ~SpaceShip();
 
+	/// @brief update is automatically called every frame
+	/// @param deltaTime the elapsed time in seconds
+	/// @return void
 	virtual void update(float deltaTime);
+
+	/// @brief update spaceship automatically called every frame
+	/// @param deltaTime the elapsed time in seconds
+	/// @return void
 	void updateSpaceShip(float deltaTime);
 
+	/// @brief the velocity of the spaceship
 	Vector2 velocity;
+	/// @brief the polar of the spaceship
 	Polar polar;
-	//velocity = Vector2((rand()%100)-50, (rand()%100)-50);
-	//polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
-
 
 
 private:
+	/// @brief a Timer to rotate the color every n seconds
 	Timer t;
 
 };

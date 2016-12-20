@@ -10,7 +10,8 @@
 
 SpaceShip::SpaceShip() : Entity()
 {
-  t.start();
+  this->addSprite("assets/spaceship.tga");
+
   polar = Polar(0.0f, 1.0f);
   velocity = Vector2(0.1f, 0.1f);
 }
@@ -29,9 +30,7 @@ void SpaceShip::updateSpaceShip(float deltaTime)
 {
   this->position += velocity;
   this->rotation = polar.angle;
-  //this->rotation = velocity.getAngle();
 
-  this->line()->color = BLUE;
 
   //this->position += velocity * deltaTime;
 

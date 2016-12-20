@@ -1,17 +1,17 @@
 /**
  * Copyright 2016 Erik Luttmer <erik210@live.nl>
  *
- * @brief Description of My Awesome Game.
+ * @brief Description of SpaceGame.
  *
  * @file main.cpp
  *
- * @mainpage My Awesome Game
+ * @mainpage SpaceGame
  *
- * @section intro Introduction
+ * @section Awsome SpaceGame in C++
  *
- * Detailed description of My Awesome Game.
+ * Always wanted to be a astronaut?.
  *
- * There's even a second paragraph.
+ * Play this game and survive in the galaxy!.
  */
 #include <rt2d/core.h>
 

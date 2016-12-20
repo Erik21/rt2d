@@ -16,24 +16,14 @@
 MyScene::MyScene() : Scene()
 {
 	t.start();
-	Line* tmp = new Line();
-	tmp->addPoint(-10.0f, -10.0f);
-	tmp->addPoint(20.0f, 0.0f);
-	tmp->addPoint(-10.0f, 10.0f);
-	tmp->addPoint(-10.0f, -10.0f);
 
-	// create a single instance of SpaceShip in the middle of the screen.
-	// the Sprite is added in Constructor of SpaceShip.
 	spaceship = new SpaceShip();
-	spaceship->addLine(tmp);
 	spaceship->position = Point2(SWIDTH/2, SHEIGHT/2);
-	delete tmp; // delete when you're done with it.
+	spaceship->scale = Point(0.5f, 0.5f);
 
 	// create the scene 'tree'
 	// add spaceship to this Scene as a child.
 	this->addChild(spaceship);
-
-//polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
 }
 
 
@@ -50,7 +40,6 @@ MyScene::~MyScene()
 void MyScene::update(float deltaTime)
 {
 	spaceship->updateSpaceShip(deltaTime);
-	rotspeed = 3.14f;
 
 	// ###############################################################
 	// Escape key stops the Scene
@@ -77,17 +66,20 @@ void MyScene::update(float deltaTime)
 		spaceship->polar.angle -= rotspeed * deltaTime; // rotate left
 	}
 	*/
-	// Move myentity
 	if ((input()->getKey(GLFW_KEY_W)) || (input()->getKey(GLFW_KEY_UP)))  {
-		spaceship->velocity.y -= 2 * deltaTime;
+		spaceship->velocity.y -= 1 * deltaTime;
+	//	spaceship->line()->color = RED;
 	}
 	if ((input()->getKey(GLFW_KEY_S)) || (input()->getKey(GLFW_KEY_DOWN))) {
-		spaceship->velocity.y += 2 * deltaTime;
+		spaceship->velocity.y += 1 * deltaTime;
+	//	spaceship->line()->color = RED;
 	}
 	if ((input()->getKey(GLFW_KEY_A)) || (input()->getKey(GLFW_KEY_LEFT))) {
-		spaceship->velocity.x -= 2 * deltaTime;
+		spaceship->velocity.x -= 1 * deltaTime;
+	//	spaceship->line()->color = WHITE;
 	}
 	if ((input()->getKey(GLFW_KEY_D)) || (input()->getKey(GLFW_KEY_RIGHT)))  {
-		spaceship->velocity.x += 2 * deltaTime;
+		spaceship->velocity.x += 1 * deltaTime;
+	//	spaceship->line()->color = WHITE;
 	}
 }

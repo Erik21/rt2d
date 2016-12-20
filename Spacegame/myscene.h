@@ -28,17 +28,11 @@ public:
 	/// @return void
 	virtual void update(float deltaTime);
 
-	//Polar polar = Polar((rand()%360) * DEG_TO_RAD, 400.0f);
-	//Vector2 velocity = Vector2(0.001f, 0.001f);
-
-	float rotspeed;
-
 private:
-	/// @...
+	/// @brief the spaceship in the middle of the screen
 	SpaceShip* spaceship;
 	/// @brief a Timer to rotate the color every n seconds
 	Timer t;
-	//float rotspeed;
 };
 
 #endif /* SCENE00_H */
