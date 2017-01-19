@@ -13,6 +13,8 @@
 #include <rt2d/vectorx.h>
 #include <vector>
 #include "spaceship.h"
+#include "vuurzee.h"
+
 
 /// @brief The MyScene class is the Scene implementation.
 class MyScene : public Scene
@@ -22,15 +24,18 @@ public:
 	MyScene();
 	/// @brief Destructor
 	virtual ~MyScene();
-
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
+	int a, b, c, d;
+ 	int firesea;
 
 private:
 	/// @brief the spaceship in the middle of the screen
 	SpaceShip* spaceship;
+	VuurZee* vuurzee;
+	//Camera* camera;
 	/// @brief a Timer to rotate the color every n seconds
 	Timer t;
 };

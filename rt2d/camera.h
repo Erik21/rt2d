@@ -12,6 +12,9 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+#include <vector>
+#include <rt2d/vectorx.h>
+
 // Include GLFW
 #include <glfw3.h>
 
@@ -43,11 +46,14 @@ public:
 	/// @return glm::mat4 _projectionMatrix
 	glm::mat4 projectionMatrix() { return _projectionMatrix; };
 
+	Vector2 velocity;
+
 private:
 	glm::mat4 _viewMatrix; ///< @brief The viewMatrix of the Camera
 	glm::mat4 _projectionMatrix; ///< @brief The (orthographic) projectionMatrix of the Camera
-
 	Point _offset; ///< @brief The internal offset of the Camera. When Camera is in the middle of the screen, its position is (0,0).
+
+
 };
 
 #endif

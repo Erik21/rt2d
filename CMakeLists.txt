@@ -188,8 +188,8 @@ add_executable(Spacegame
 	Spacegame/myscene.h
 	Spacegame/spaceship.cpp
 	Spacegame/spaceship.h
-  	
-
+	Spacegame/vuurzee.cpp
+	Spacegame/vuurzee.h
 
 )
 target_link_libraries(Spacegame

@@ -33,6 +33,7 @@ void Camera::updateCamera(float deltaTime)
 
 	glm::vec3 pos = glm::vec3(position.x, position.y, position.z);
 	glm::vec3 offset = glm::vec3(_offset.x, _offset.y, _offset.z);
+	
 
 	// View matrix
 	_viewMatrix = glm::lookAt(

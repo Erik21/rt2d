@@ -34,8 +34,8 @@ void SpaceShip::updateSpaceShip(float deltaTime)
 
   //this->position += velocity * deltaTime;
 
-	if (this->position.x < 0) { this->position.x = SWIDTH; }
-	if (this->position.x > SWIDTH) { this->position.x = 0; }
+//	if (this->position.x < 0) { this->position.x = SWIDTH; }
+//	if (this->position.x > SWIDTH) { this->position.x = 0; }
 	if (this->position.y < 0) { this->position.y = SHEIGHT; }
 	if (this->position.y > SHEIGHT) { this->position.y = 0; }
 }

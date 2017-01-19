@@ -17,6 +17,7 @@
 
 #include "myscene.h"
 #include "spaceship.h"
+#include "vuurzee.h"
 
 /// @brief main entry point
 int main( void )
