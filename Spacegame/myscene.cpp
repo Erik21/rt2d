@@ -87,11 +87,6 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	vuurzee->CollideWithPlayer(spaceship, Vector2(0, 328), Vector2(90,328));
 
-	if(vuurzee->CollideWithPlayer(spaceship, Vector2(0, 328), Vector2(90,328)))
-	{
-			this->stop();
-	}
-
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################

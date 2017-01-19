@@ -20,9 +20,9 @@ if(UNIX)
 
 	set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
 
-	# valgrind --leak-check=full ./demo
-	# ./demo # creates cmon.out
-	# gprof demo gmon.out > analysis.txt
+	# valgrind --leak-check=full ./Spacegame
+	# ./Spacegame # creates cmon.out
+	# gprof Spacegame gmon.out > analysis.txt
 	#set(CMAKE_CXX_FLAGS "-Wall -pg -std=c++11")
 endif(UNIX)
 
@@ -130,54 +130,7 @@ file(
 	DESTINATION ${CMAKE_BINARY_DIR}
 )
 
-####################################################################
-# demo                                                             #
-####################################################################
-add_executable(demo
-	demo/main.cpp
-	demo/basicentity.cpp
-	demo/basicentity.h
-	demo/boidentity.cpp
-	demo/boidentity.h
-	demo/scene00.cpp
-	demo/scene00.h
-	demo/scene01.cpp
-	demo/scene01.h
-	demo/scene02.cpp
-	demo/scene02.h
-	demo/scene02a.cpp
-	demo/scene02a.h
-	demo/scene03.cpp
-	demo/scene03.h
-	demo/scene03a.cpp
-	demo/scene03a.h
-	demo/scene03b.cpp
-	demo/scene03b.h
-	demo/scene04.cpp
-	demo/scene04.h
-	demo/scene05.cpp
-	demo/scene05.h
-	demo/scene06.cpp
-	demo/scene06.h
-	demo/scene07.cpp
-	demo/scene07.h
-	demo/scene08.cpp
-	demo/scene08.h
-	demo/scene09.cpp
-	demo/scene09.h
-	demo/scene10.cpp
-	demo/scene10.h
-	demo/superscene.cpp
-	demo/superscene.h
-)
-target_link_libraries(demo
-	${ALL_LIBS}
-)
-# Copy assets to the build directory
-file(
-	COPY demo/assets
-	DESTINATION ${CMAKE_BINARY_DIR}
-)
+
 
 ####################################################################
 # Spacegame                                                            #
@@ -204,9 +157,9 @@ file(
 
 
 if(WIN32)
-	# Xcode and Visual working directories for demo
-	#set_target_properties(demo PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/demo/")
-	#create_target_launcher(demo WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/demo/")
+	# Xcode and Visual working directories for Spacegame
+	#set_target_properties(Spacegame PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Spacegame/")
+	#create_target_launcher(Spacegame WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Spacegame/")
 
 	# Xcode and Visual working directories for Spacegame
 	#set_target_properties(Spacegame PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Spacegame/")
@@ -214,7 +167,6 @@ if(WIN32)
 
 	# create file tabs in visual studio
 	#SOURCE_GROUP(rt2d REGULAR_EXPRESSION ".*/rt2d/.*" )
-	#SOURCE_GROUP(demo REGULAR_EXPRESSION ".*/demo/.*" )
 	#SOURCE_GROUP(Spacegame REGULAR_EXPRESSION ".*/Spacegame/.*" )
 	#SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shaders$" )
 endif(WIN32)
@@ -222,8 +174,8 @@ endif(WIN32)
 
 if (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
 #add_custom_command(
-#   TARGET demo POST_BUILD
-#   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/demo${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/demo/"
+#   TARGET Spacegame POST_BUILD
+#   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/Spacegame${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/Spacegame/"
 #)
 elseif (${CMAKE_GENERATOR} MATCHES "Xcode" )
 
