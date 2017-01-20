@@ -21,7 +21,6 @@ MyScene::MyScene() : Scene()
 	spaceship->position = Point2(SWIDTH/2, SHEIGHT/2);
 	spaceship->scale = Point(0.5f, 0.5f);
 
-
 	vuurzee = new VuurZee();
 	vuurzee->position = Point2(0, 328);
 	vuurzee->scale = Point(1.0f, 1.6f);
@@ -35,7 +34,12 @@ MyScene::MyScene() : Scene()
 	b = 2;
 	c = 3;
 	d = 4;
-	firesea = 1;
+	e = 5;
+	f = 6;
+	g = 7;
+
+	firesea = a;
+	fireseatimer = 0;
 }
 
 
@@ -46,7 +50,7 @@ MyScene::~MyScene()
 	this->removeChild(spaceship);
 	this->removeChild(vuurzee);
 
-	// delete spaceship from the heap (there was a 'new' in the constructor)
+	// delete spaceship and vuurzee from the heap (there was a 'new' in the constructor)
 	delete spaceship;
 	delete vuurzee;
 }
@@ -54,29 +58,57 @@ MyScene::~MyScene()
 
 void MyScene::update(float deltaTime)
 {
-	if (firesea == 1) {
-      cout << firesea;
-			firesea = 2;
+	fireseatimer += deltaTime;
+
+	if (fireseatimer >= 0.1f && firesea == a) {
 			vuurzee->addSprite("assets/FireSea.tga");
+      cout << firesea;
+			firesea = b;
+			fireseatimer = 0;
 		}
 
-	if (firesea == 2) {
-      firesea = 3;
-      cout << firesea;
+	if (fireseatimer >= 0.1f && firesea == b) {
 			vuurzee->addSprite("assets/FireSea2.tga");
+      firesea = c;
+      cout << firesea;
+			fireseatimer = 0;
 		}
 
-  if (firesea == 3) {
+  if (fireseatimer >= 0.1f && firesea == c) {
   		vuurzee->addSprite("assets/FireSea3.tga");
-      firesea = 4;
+      firesea = d;
       cout << firesea;
+			fireseatimer = 0;
   	}
 
-  if (firesea == 4) {
+  if (fireseatimer >= 0.1f && firesea == d) {
       vuurzee->addSprite("assets/FireSea4.tga");
-      firesea = 1;
+      firesea = f;
       cout << firesea;
+			fireseatimer = 0;
   	}
+
+	if (fireseatimer >= 0.1f && firesea == e) {
+	    vuurzee->addSprite("assets/FireSea5.tga");
+	    firesea = f;
+	    cout << firesea;
+			fireseatimer = 0;
+	  }
+
+	if (fireseatimer >= 0.1f && firesea == f) {
+		  vuurzee->addSprite("assets/FireSea6.tga");
+		  firesea = g;
+		  cout << firesea;
+			fireseatimer = 0;
+		}
+
+	if (fireseatimer >= 0.1f && firesea == g) {
+			vuurzee->addSprite("assets/FireSea7.tga");
+			firesea = a;
+			cout << firesea;
+			fireseatimer = 0;
+		}
+
 	// ###############################################################
 	// //
 	// ###############################################################
@@ -109,13 +141,11 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	if ((input()->getKey(GLFW_KEY_W)) || (input()->getKey(GLFW_KEY_UP)))  {
 		spaceship->addSprite("assets/spaceship_up.tga");
-		vuurzee->addSprite("assets/FireSea2.tga");
 		spaceship->velocity.y -= 1 * deltaTime;
 	}
 
 	if ((input()->getKeyUp(GLFW_KEY_W)) || (input()->getKeyUp(GLFW_KEY_UP)))  {
 		spaceship->addSprite("assets/spaceship.tga");
-		vuurzee->addSprite("assets/FireSea3.tga");
 	}
 
 	// ###############################################################
@@ -124,13 +154,11 @@ void MyScene::update(float deltaTime)
 	if ((input()->getKey(GLFW_KEY_S)) || (input()->getKey(GLFW_KEY_DOWN))) {
 		spaceship->velocity.y += 1 * deltaTime;
 		spaceship->addSprite("assets/spaceship_down.tga");
-		vuurzee->addSprite("assets/FireSea.tga");
 	}
 
 	if ((input()->getKeyUp(GLFW_KEY_S)) || (input()->getKeyUp(GLFW_KEY_DOWN))) {
 		spaceship->velocity.y += 1 * deltaTime;
 		spaceship->addSprite("assets/spaceship.tga");
-		vuurzee->addSprite("assets/FireSea7.tga");
 	}
 
 	// ###############################################################

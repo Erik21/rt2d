@@ -28,8 +28,9 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
-	int a, b, c, d;
+	int a, b, c, d, e, f, g;
  	int firesea;
+	float fireseatimer;
 
 private:
 	/// @brief the spaceship in the middle of the screen

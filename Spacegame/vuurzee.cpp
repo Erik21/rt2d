@@ -17,15 +17,7 @@
 VuurZee::VuurZee() : Entity()
 {
   t.start();
-  this->addSprite("assets/FireSea7.tga");
 
-  /*
-  a = 1;
-  b = 2;
-  c = 3;
-  d = 4;
-  firesea = 1;
-  */
 }
 
 VuurZee::~VuurZee()
@@ -35,31 +27,6 @@ VuurZee::~VuurZee()
 
 void VuurZee::update(float deltaTime)
 {
-/*
-  if (firesea == 1) {
-		  this->addSprite("assets/FireSea.tga");
-      firesea ++;
-      cout << firesea;
-		}
-
-	if (firesea == 2) {
-      this->addSprite("assets/FireSea2.tga");
-      firesea ++;
-      cout << firesea;
-		}
-
-  if (firesea == 3) {
-  		this->addSprite("assets/FireSea3.tga");
-      firesea ++;
-      cout << firesea;
-  	}
-
-  if (firesea == 4) {
-      this->addSprite("assets/FireSea4.tga");
-      firesea = 1;
-      cout << firesea;
-  	}
-  */
 
 }
 
