@@ -40,15 +40,14 @@ private:
 	SpaceShip* spaceship;
 	/// @brief the vuurzee in the left of the screen
 	VuurZee* vuurzee;
-	/// @brief the vuurzee in the left of the screen
+	/// @brief the SpaceTrash in the screen
 	SpaceTrash* spacetrash;
+	/// @brief the SpaceTrash2 in the screen
 	SpaceTrash* spacetrash2;
+	/// @brief the SpaceTrash3 in the screen
 	SpaceTrash* spacetrash3;
 	/// @brief the spaceship in the middle of the screen
 	BackGround* background;
-
-	/// @brief a Timer to rotate the color every n seconds
-	Timer t;
 };
 
 #endif /* SCENE00_H */

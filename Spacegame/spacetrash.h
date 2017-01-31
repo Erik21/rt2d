@@ -35,6 +35,7 @@ public:
  	int spacetrash;
 	/// @brief fireseatimer for delay in Animation
 	float spacetrashtimer;
+	/// @brief animation timer
 	float aniTimer;
 
 

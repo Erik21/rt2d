@@ -5,9 +5,7 @@
 #include <time.h>
 #include <fstream>
 #include <sstream>
-#include "spaceship.h"
 #include "vuurzee.h"
-#include "spacetrash.h"
 #include "vector"
 using namespace std;
 
@@ -29,6 +27,7 @@ VuurZee::VuurZee() : Entity()
 
     firesea = a;
     fireseatimer = 0;
+    aniTimer = 0.1f;
 }
 
 VuurZee::~VuurZee()

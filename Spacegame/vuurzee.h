@@ -30,6 +30,9 @@ public:
  	int firesea;
 	/// @brief fireseatimer for delay in Animation
 	float fireseatimer;
+	/// @brief animation timer
+	float aniTimer;
+
 
 
 	/// @brief update is automatically called every frame

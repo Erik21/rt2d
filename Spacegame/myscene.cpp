@@ -18,7 +18,6 @@ using namespace std;
 
 MyScene::MyScene() : Scene()
 {
-	t.start();
 	spaceship = new SpaceShip();
 	spaceship->position = Point2(SWIDTH/2, SHEIGHT/2);
 	spaceship->scale = Point(0.5f, 0.5f);
@@ -85,7 +84,7 @@ void MyScene::update(float deltaTime)
 	{
 		spacetrash = new SpaceTrash();
 		addChild(spacetrash);
-		spacetrash->position = Point2(vuurzee->position.x + 1300, spaceship->position.y);
+		spacetrash->position = Point2(vuurzee->position.x + 1300, spaceship->position.y + 100);
 		spacetrash->scale = Point(0.5f, 0.5f);
 	}
 
@@ -101,7 +100,7 @@ void MyScene::update(float deltaTime)
 	{
 		spacetrash3 = new SpaceTrash();
 		addChild(spacetrash3);
-		spacetrash3->position = Point2(vuurzee->position.x + 1300, spaceship->position.y);
+		spacetrash3->position = Point2(vuurzee->position.x + 1300, spaceship->position.y - 100);
 		spacetrash3->scale = Point(0.5f, 0.5f);
 	}
 

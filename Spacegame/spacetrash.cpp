@@ -5,8 +5,6 @@
 #include <time.h>
 #include <fstream>
 #include <sstream>
-#include "spaceship.h"
-#include "vuurzee.h"
 #include "spacetrash.h"
 #include "vector"
 using namespace std;
