@@ -14,6 +14,8 @@
 #include <vector>
 #include "spaceship.h"
 #include "vuurzee.h"
+#include "spacetrash.h"
+#include "background.h"
 
 
 /// @brief The MyScene class is the Scene implementation.
@@ -28,15 +30,23 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
-	int a, b, c, d, e, f, g;
- 	int firesea;
-	float fireseatimer;
+
+	bool CollideWithPlayer(Entity* other, Vector2 thisRadius, Vector2 otherRadius);
+
+	float timer;
 
 private:
 	/// @brief the spaceship in the middle of the screen
 	SpaceShip* spaceship;
+	/// @brief the vuurzee in the left of the screen
 	VuurZee* vuurzee;
-	//Camera* camera;
+	/// @brief the vuurzee in the left of the screen
+	SpaceTrash* spacetrash;
+	SpaceTrash* spacetrash2;
+	SpaceTrash* spacetrash3;
+	/// @brief the spaceship in the middle of the screen
+	BackGround* background;
+
 	/// @brief a Timer to rotate the color every n seconds
 	Timer t;
 };

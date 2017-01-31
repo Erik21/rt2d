@@ -133,7 +133,7 @@ file(
 
 
 ####################################################################
-# Spacegame                                                            #
+# Spacegame                                                        #
 ####################################################################
 add_executable(Spacegame
 	Spacegame/main.cpp
@@ -143,6 +143,10 @@ add_executable(Spacegame
 	Spacegame/spaceship.h
 	Spacegame/vuurzee.cpp
 	Spacegame/vuurzee.h
+	Spacegame/spacetrash.cpp
+	Spacegame/spacetrash.h
+	Spacegame/background.cpp
+	Spacegame/background.h
 
 )
 target_link_libraries(Spacegame

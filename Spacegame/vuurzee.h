@@ -23,9 +23,14 @@ public:
 	VuurZee();
 	/// @brief Destructor
 	virtual ~VuurZee();
-	void CollideWithPlayer(Entity* other, Vector2 thisRadius, Vector2 otherRadius);
-	int a, b, c, d;
+
+	/// @brief variables
+	int a, b, c, d, e, f, g, h, i, j, k, l;
+	/// @brief int firesea
  	int firesea;
+	/// @brief fireseatimer for delay in Animation
+	float fireseatimer;
+
 
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
