@@ -16,6 +16,8 @@
 #include "vuurzee.h"
 #include "spacetrash.h"
 #include "background.h"
+#include "logo.h"
+#include <rt2d/text.h>
 
 
 /// @brief The MyScene class is the Scene implementation.
@@ -32,10 +34,11 @@ public:
 	virtual void update(float deltaTime);
 
 	bool CollideWithPlayer(Entity* other, Vector2 thisRadius, Vector2 otherRadius);
-
 	float timer;
 
 private:
+	//
+	//std::vector<SpaceTrash*> boids;
 	/// @brief the spaceship in the middle of the screen
 	SpaceShip* spaceship;
 	/// @brief the vuurzee in the left of the screen
@@ -48,6 +51,11 @@ private:
 	SpaceTrash* spacetrash3;
 	/// @brief the spaceship in the middle of the screen
 	BackGround* background;
+	/// @brief the logo in the middle of the screen
+	Logo* logo;
 };
+
+
+
 
 #endif /* SCENE00_H */

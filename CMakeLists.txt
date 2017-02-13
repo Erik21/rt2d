@@ -147,6 +147,8 @@ add_executable(Spacegame
 	Spacegame/spacetrash.h
 	Spacegame/background.cpp
 	Spacegame/background.h
+	Spacegame/logo.cpp
+	Spacegame/logo.h
 
 )
 target_link_libraries(Spacegame

@@ -14,6 +14,8 @@
 #include "camera.h"
 #include "spacetrash.h"
 #include "background.h"
+#include "logo.h"
+#include <rt2d/text.h>
 using namespace std;
 
 MyScene::MyScene() : Scene()
@@ -42,6 +44,22 @@ MyScene::MyScene() : Scene()
 	background->position = Point2(SWIDTH/2, SHEIGHT/2);
 	background->scale = Point(1.0f, 1.0f);
 
+	logo = new Logo();
+	logo->position = Point2(SWIDTH/2, SHEIGHT/2);
+	logo->scale = Point(1.0f, 1.0f);
+/*
+
+	// create Boids
+	int amount = 3;
+	for (int i=0; i<amount; i++) {
+			SpaceTrash* b = new SpaceTrash();
+			b->addSprite("assets/spacetrasha.tga");
+
+			boids.push_back(b);
+			addChild(b);
+	}
+*/
+
 	// create the scene 'tree'
 	// add spaceship, vuurzee and spacetrash to this Scene as a child.
 	this->addChild(background);
@@ -50,6 +68,7 @@ MyScene::MyScene() : Scene()
 	this->addChild(spacetrash);
 	this->addChild(spacetrash2);
 	this->addChild(spacetrash3);
+
 	timer = 0;
 }
 
@@ -70,6 +89,16 @@ MyScene::~MyScene()
 	delete spacetrash2;
 	delete spacetrash3;
 	delete background;
+
+	/*
+	int s = boids.size();
+	for (int i=0; i<s; i++) {
+		layers[0]->removeChild(boids[i]);
+		delete boids[i];
+		boids[i] = NULL;
+	}
+	boids.clear();
+	*/
 }
 
 
@@ -79,30 +108,6 @@ void MyScene::update(float deltaTime)
 	// Timer
 	// ###############################################################
 	timer += deltaTime;
-
-	if (spacetrash == NULL)
-	{
-		spacetrash = new SpaceTrash();
-		addChild(spacetrash);
-		spacetrash->position = Point2(vuurzee->position.x + 1300, spaceship->position.y + 100);
-		spacetrash->scale = Point(0.5f, 0.5f);
-	}
-
-	if (spacetrash2 == NULL)
-	{
-		spacetrash2 = new SpaceTrash();
-		addChild(spacetrash2);
-		spacetrash2->position = Point2(vuurzee->position.x + 1300, spaceship->position.y);
-		spacetrash2->scale = Point(0.5f, 0.5f);
-	}
-
-	if (spacetrash3 == NULL)
-	{
-		spacetrash3 = new SpaceTrash();
-		addChild(spacetrash3);
-		spacetrash3->position = Point2(vuurzee->position.x + 1300, spaceship->position.y - 100);
-		spacetrash3->scale = Point(0.5f, 0.5f);
-	}
 
 	// ###############################################################
 	// updateSpaceShip
@@ -123,40 +128,22 @@ void MyScene::update(float deltaTime)
 	if (spacetrash->position.x <= vuurzee->position.x + 90)
 	{
 		std::cout << "Destroy SpaceTrash" << std::endl;
-		removeChild(spacetrash);
-		delete spacetrash;
-		spacetrash = NULL;
+		spacetrash->position = Point2(vuurzee->position.x + 1300, spaceship->position.y + 125);
+		spacetrash->scale = Point(0.5f, 0.5f);
 	}
 
 	if (spacetrash2->position.x <= vuurzee->position.x + 90)
 	{
 		std::cout << "Destroy SpaceTrash2" << std::endl;
-		removeChild(spacetrash2);
-		delete spacetrash2;
-		spacetrash2 = NULL;
+		spacetrash2->position = Point2(vuurzee->position.x + 1300, spaceship->position.y);
+		spacetrash2->scale = Point(0.5f, 0.5f);
 	}
 
 	if (spacetrash3->position.x <= vuurzee->position.x + 90)
 	{
 		std::cout << "Destroy SpaceTrash3" << std::endl;
-		removeChild(spacetrash3);
-		delete spacetrash3;
-		spacetrash3 = NULL;
-	}
-
-	if(spacetrash == NULL)
-	{
-		std::cout << "/* SpaceTrash NULLLLL */" << std::endl;
-	}
-
-	if(spacetrash2 == NULL)
-	{
-		std::cout << "/* SpaceTrash2 NULLLLL */" << std::endl;
-	}
-
-	if(spacetrash3 == NULL)
-	{
-		std::cout << "/* SpaceTrash3 NULLLLL */" << std::endl;
+		spacetrash3->position = Point2(vuurzee->position.x + 1300, spaceship->position.y - 133);
+		spacetrash3->scale = Point(0.5f, 0.5f);
 	}
 	// ###############################################################
 	// Circle Collision
@@ -193,7 +180,6 @@ void MyScene::update(float deltaTime)
 			//::cout << d << " : " << r1 << " -> " << r2 << std::endl;
 		}
 	}
-
 
 	// ###############################################################
 	// Escape key stops the Scene
@@ -310,6 +296,7 @@ void MyScene::update(float deltaTime)
 		spaceship->velocity.y += 1 * deltaTime;
 		spaceship->addSprite("assets/spaceship.tga");
 	}
+
 
 	// ###############################################################
 	// Move SpaceShip to the Left
