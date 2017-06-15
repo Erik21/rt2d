@@ -44,15 +44,18 @@ private:
 	/// @brief the vuurzee in the left of the screen
 	VuurZee* vuurzee;
 	/// @brief the SpaceTrash in the screen
-	SpaceTrash* spacetrash;
+	//SpaceTrash* spacetrash;
 	/// @brief the SpaceTrash2 in the screen
-	SpaceTrash* spacetrash2;
+	//SpaceTrash* spacetrash2;
 	/// @brief the SpaceTrash3 in the screen
-	SpaceTrash* spacetrash3;
+	//SpaceTrash* spacetrash3;
 	/// @brief the spaceship in the middle of the screen
 	BackGround* background;
 	/// @brief the logo in the middle of the screen
 	Logo* logo;
+	/// @brief the spaceship in the middle of the screen
+	std::vector<SpaceTrash*> allspacetrash;
+
 };
 
 

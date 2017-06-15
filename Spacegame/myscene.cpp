@@ -27,7 +27,7 @@ MyScene::MyScene() : Scene()
 	vuurzee = new VuurZee();
 	vuurzee->position = Point2(0, 328);
 	vuurzee->scale = Point(1.0f, 1.6f);
-
+/*
 	spacetrash = new SpaceTrash();
 	spacetrash->position = Point2(500, 328);
 	spacetrash->scale = Point(0.5f, 0.5f);
@@ -39,7 +39,7 @@ MyScene::MyScene() : Scene()
 	spacetrash3 = new SpaceTrash();
 	spacetrash3->position = Point2(2000, 328);
 	spacetrash3->scale = Point(0.5f, 0.5f);
-
+*/
 	background = new BackGround();
 	background->position = Point2(SWIDTH/2, SHEIGHT/2);
 	background->scale = Point(1.0f, 1.0f);
@@ -47,27 +47,28 @@ MyScene::MyScene() : Scene()
 	logo = new Logo();
 	logo->position = Point2(SWIDTH/2, SHEIGHT/2);
 	logo->scale = Point(1.0f, 1.0f);
-/*
 
-	// create Boids
-	int amount = 3;
+	//allspacetrash = new std::vector<SpaceTrash*>();
+
+this->addChild(background);
+
+	int amount = 5;
 	for (int i=0; i<amount; i++) {
 			SpaceTrash* b = new SpaceTrash();
-			b->addSprite("assets/spacetrasha.tga");
-
-			boids.push_back(b);
-			addChild(b);
+			b->position = Point2(500*(i+1),328);
+			b->scale = Point(0.5f, 0.5f);
+			allspacetrash.push_back(b);
+			this->addChild(b);
 	}
-*/
 
 	// create the scene 'tree'
 	// add spaceship, vuurzee and spacetrash to this Scene as a child.
-	this->addChild(background);
+
 	this->addChild(spaceship);
 	this->addChild(vuurzee);
-	this->addChild(spacetrash);
-	this->addChild(spacetrash2);
-	this->addChild(spacetrash3);
+	//this->addChild(spacetrash);
+	//this->addChild(spacetrash2);
+	//this->addChild(spacetrash3);
 
 	timer = 0;
 }
@@ -77,28 +78,28 @@ MyScene::~MyScene()
 	// deconstruct and delete the Tree
 	this->removeChild(spaceship);
 	this->removeChild(vuurzee);
-	this->removeChild(spacetrash);
-	this->removeChild(spacetrash2);
-	this->removeChild(spacetrash3);
+	//this->removeChild(spacetrash);
+	//this->removeChild(spacetrash2);
+	//this->removeChild(spacetrash3);
 	this->removeChild(background);
 
 	// delete spaceship, spacetrash and vuurzee from the heap (there was a 'new' in the constructor)
 	delete spaceship;
 	delete vuurzee;
-	delete spacetrash;
-	delete spacetrash2;
-	delete spacetrash3;
+	//delete spacetrash;
+	//delete spacetrash2;
+	//delete spacetrash3;
 	delete background;
 
-	/*
-	int s = boids.size();
+
+	int s = allspacetrash.size();
 	for (int i=0; i<s; i++) {
-		layers[0]->removeChild(boids[i]);
-		delete boids[i];
-		boids[i] = NULL;
+		this->removeChild(allspacetrash[i]);
+		delete allspacetrash[i];
+		allspacetrash[i] = NULL;
 	}
-	boids.clear();
-	*/
+	allspacetrash.clear();
+
 }
 
 
@@ -125,6 +126,18 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	// //SpaceTrash vs FireSea
 	// ###############################################################
+
+	int s = allspacetrash.size();
+	for (int i=0; i<s; i++) {
+		if (allspacetrash[i]->position.x <= vuurzee->position.x + 90)
+		{
+			std::cout << "Destroy SpaceTrash" << std::endl;
+			allspacetrash[i]->position = Point2(vuurzee->position.x + 1300, spaceship->position.y + (rand() % 250 + (-125)));
+			allspacetrash[i]->scale = Point(0.5f, 0.5f);
+		}
+	}
+
+/*
 	if (spacetrash->position.x <= vuurzee->position.x + 90)
 	{
 		std::cout << "Destroy SpaceTrash" << std::endl;
@@ -145,12 +158,25 @@ void MyScene::update(float deltaTime)
 		spacetrash3->position = Point2(vuurzee->position.x + 1300, spaceship->position.y - 133);
 		spacetrash3->scale = Point(0.5f, 0.5f);
 	}
+*/
 	// ###############################################################
 	// Circle Collision
 	// ###############################################################
 	int r1 = 32;
 	int r2 = 64;
 
+	for (int i=0; i<allspacetrash.size(); i++) {
+		if (allspacetrash[i] != NULL) {
+			Vector2 dv = Vector2(spaceship->position, allspacetrash[i]->position);
+			float d = dv.getLength();
+			if ( d <= (r1 + r2))
+			{
+				this->stop();
+				//::cout << d << " : " << r1 << " -> " << r2 << std::endl;
+			}
+		}
+	}
+/*
 	if (spacetrash != NULL) {
 		Vector2 dv = Vector2(spaceship->position, spacetrash->position);
 		float d = dv.getLength();
@@ -180,7 +206,7 @@ void MyScene::update(float deltaTime)
 			//::cout << d << " : " << r1 << " -> " << r2 << std::endl;
 		}
 	}
-
+*/
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
